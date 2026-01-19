@@ -12,6 +12,8 @@ from .serializers import HelloappSerializer
     #return HttpResponse("hello")
 
 #test
+def testing():
+    pass
 
 class HelloappView(APIView):
     def get(self,request):
