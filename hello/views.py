@@ -11,6 +11,8 @@ from .serializers import HelloappSerializer
 #def hello(request):
     #return HttpResponse("hello")
 
+#test
+
 class HelloappView(APIView):
     def get(self,request):
         hello = Helloapp.objects.all().order_by('name')
