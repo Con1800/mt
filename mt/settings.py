@@ -22,13 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x%(z=5j#0(tz$7iw-fk03ls^rjnnw6q4x0y@d5rxiq_713hx1v'
+# SECRET_KEY = 'django-insecure-x%(z=5j#0(tz$7iw-fk03ls^rjnnw6q4x0y@d5rxiq_713hx1v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-#SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback-for-local")
-#DEBUG = os.environ.get("DEBUG", "True") == "True"
+SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-for-local")
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
@@ -80,11 +80,10 @@ WSGI_APPLICATION = 'mt.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+# DATABASE_URL = postgresql://test_bi31_user:ojrFVteHni0bWblULZs1bzBW3osqnFGh@dpg-d5nr7pemcj7s73csmpig-a.singapore-postgres.render.com/test_bi31
 
-    'default': dj_database_url.config(
-        default="postgresql://test_bi31_user:ojrFVteHni0bWblULZs1bzBW3osqnFGh@dpg-d5nr7pemcj7s73csmpig-a.singapore-postgres.render.com/test_bi31"
-    )
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
